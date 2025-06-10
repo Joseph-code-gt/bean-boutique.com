@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bean Boutique | Home</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <!-- Swiper JS -->
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <!-- Link to your custom CSS file -->
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .hero {
+            background: url('coffee_bg.jpg') center/cover no-repeat;
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+     .modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex; /* Flexbox for centering */
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    position: relative;
+    text-align: center; /* Added for consistency */
+}
+
+.close-btn {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    color: red;
+}
+
+#subscribeSuccess {
+    display: none;
+    color: green;
+    margin-top: 15px;
+}
+
+/* Hero Section Styling */
+.hero {
+    position: relative;
+    height: 90vh;
+    background: url('pictures/1.jpg') center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-title {
+    font-size: 3rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.hero-subtitle {
+    font-size: 1.5rem;
+    margin: 15px 0;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+.hero-btn {
+    font-size: 1.2rem;
+    padding: 12px 25px;
+    border-radius: 25px;
+    background: #f8b400;
+    color: #fff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.hero-btn:hover {
+    background: #e09b00;
+    transform: scale(1.1);
+}
+
+/* Animation for Hero */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Coffee Section Styling */
+.coffee-section {
+    padding: 80px 0;
+    background: #f9f4f0;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #4b2c20;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #6d4c41;
+}
+
+/* Coffee Card Styling (Adjusted for Swiper) */
+.coffee-card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    padding: 15px;
+    width: 100%; /* Ensure full width within slide */
+}
+
+.coffee-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.coffee-info {
+    padding: 20px;
+}
+
+.coffee-info h5 {
+    font-size: 1.5rem;
+    color: #4b2c20;
+    margin-bottom: 10px;
+}
+
+.coffee-info p {
+    font-size: 1rem;
+    color: #6d4c41;
+}
+
+/* Hover Effect */
+.coffee-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.coffee-btn {
+    background: #d2691e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.coffee-btn:hover {
+    background: #b75715;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation for Coffee Cards */
+.coffee-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Events Section Styling */
+.events-section {
+    padding: 80px 0;
+    background: #fff7f0;
+    text-align: center;
+}
+
+.event-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.event-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 20px;
+}
+
+.event-info h5 {
+    font-size: 1.5rem;
+    color: #4b2c20;
+    margin-bottom: 10px;
+}
+
+.event-info p {
+    font-size: 1rem;
+    color: #6d4c41;
+    margin-bottom: 10px;
+}
+
+.event-date {
+    display: block;
+    font-size: 1rem;
+    color: #d2691e;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Hover Effect */
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.event-btn {
+    background: #d2691e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.event-btn:hover {
+    background: #b75715;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation for Events */
+.event-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Google Map Section Styling */
+.map-section {
+    padding: 80px 0;
+    background: #fff7f0;
+    text-align: center;
+}
+
+.map-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.map-address {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    color: #4b2c20;
+    font-weight: bold;
+}
+
+.map-address a {
+    color: #d2691e;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+.map-address a:hover {
+    color: #b75715;
+    text-decoration: underline;
+}
+
+/* Fade-in Animation for Map */
+.map-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Social Icons Section */
+.social-icons-section {
+    padding: 80px 0;
+    background: #fff7f0;
+    text-align: center;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 30px;
+    flex-wrap: wrap;
+}
+
+.social-icon {
+    font-size: 3rem;
+    color: #4b2c20;
+    transition: transform 0.3s ease, color 0.3s ease;
+    text-decoration: none;
+}
+
+.social-icon:hover {
+    transform: scale(1.2);
+    color: #000;
+}
+
+.social-icon.instagram:hover {
+    color: #e4405f;
+}
+
+.social-icon.x:hover {
+    color: #000000;
+}
+
+.social-icon.facebook:hover {
+    color: #1877f2;
+}
+
+.social-icon.whatsapp:hover {
+    color: #25d366;
+}
+
+/* Shopping Cart Section Styling */
+.cart-section {
+    padding: 80px 0;
+    background: #fff7f0;
+    text-align: center;
+}
+
+.cart-container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.cart-table th, .cart-table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-table th {
+    background: #d2691e;
+    color: white;
+    font-size: 1.2rem;
+}
+
+.cart-table td {
+    font-size: 1rem;
+    color: #4b2c20;
+}
+
+.remove-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.remove-btn:hover {
+    background: darkred;
+}
+
+.cart-summary {
+    margin-top: 20px;
+}
+
+.cart-summary h3 {
+    font-size: 1.5rem;
+    color: #4b2c20;
+}
+
+.checkout-btn {
+    background: #d2691e;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+
+.checkout-btn:hover {
+    background: #b75715;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation for Cart */
+.cart-container {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    text-align: center;
+    background-color: #4b2c20;
+    color: #d7bfae;
+    padding: 20px 0;
+    font-size: 0.95rem;
+    border-top: 1px solid #6d4c41;
+}
+
+/* Coffee Slider Styles (Adjusted for Consistency) */
+.coffee-slider {
+    padding: 20px 0;
+    width: 100%;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    width: 300px !important;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Swiper Pagination and Navigation */
+.swiper-pagination {
+    bottom: 10px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    color: #f8b400;
+}
+
+.swiper-button-prev:after,
+.swiper-button-next:after {
+    font-size: 20px;
+}
+.events-section {
+    padding: 80px 0;
+    background: #fff7f0; /* Warm, creamy beige */
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    color: #4b2c20;
+}
+
+.section-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #6d4c41;
+}
+
+/* Event Card Styling */
+.event-card {
+    background: #ffffff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    text-align: center;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.event-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 20px;
+}
+
+.event-info h5 {
+    font-size: 1.5rem;
+    color: #4b2c20;
+    margin-bottom: 10px;
+}
+
+.event-info p {
+    font-size: 1rem;
+    color: #6d4c41;
+    margin-bottom: 10px;
+}
+
+.event-date {
+    display: block;
+    font-size: 1rem;
+    color: #d2691e;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+/* Hover Effect */
+.event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Button Styling */
+.event-btn {
+    background: #d2691e;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+.event-btn:hover {
+    background: #b75715;
+    transform: scale(1.05);
+}
+
+/* Fade-in Animation */
+.event-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* Events and Workshops Section */
+.events-section {
+    padding: 80px 0;
+    background: url('pictures/10.jpg') center/cover no-repeat;
+    position: relative;
+    color: #4b2c20;
+}
+/* Visit Us Section */
+.map-section {
+    padding: 80px 0;
+    background: url('pictures/9.jpg') center/cover no-repeat;
+    position: relative;
+    color: #4b2c20;
+}
+
+.map-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.8); /* Slightly lighter overlay for map */
+    z-index: 0;
+}
+
+.map-section .container {
+    position: relative;
+    z-index: 1;
+}
+
+.map-container {
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.map-address {
+    font-size: 1.1rem;
+    color: #6d4c41;
+    text-align: center;
+}
+
+.map-address a {
+    color: #d2691e;
+    text-decoration: none;
+}
+
+.map-address a:hover {
+    text-decoration: underline;
+}
+@keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .cart-item:hover { background: #f9f9f9; }
+    @media (max-width: 768px) {
+      .cart-table th, .cart-table td { font-size: 0.9em; padding: 10px; }
+      .cart-summary { flex-direction: column; align-items: flex-start; }
+      .promo-code, .cart-summary > div { width: 100%; }
+      .checkout-btn { width: 100%; text-align: center; }
+    }
+
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes wave {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-1000px); }
+    }
+    .footer-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+      z-index: -1;
+    }
+    @media (max-width: 768px) {
+      .footer-content { grid-template-columns: 1fr; text-align: center; }
+      .social-links { justify-content: center; }
+      .newsletter-form { flex-direction: column; align-items: center; }
+      .newsletter-form input, .newsletter-form button { width: 100%; max-width: 300px; }
+    }
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="#">Bean Boutique</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#coffee">Coffee</a></li>
+          <li class="nav-item"><a class="nav-link" href="#equipment">Equipment</a></li>
+          <li class="nav-item"><a class="nav-link" href="#events">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="#cart">Cart</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header id="home" class="hero">
+    <div class="overlay"></div>
+    <div class="container text-center">
+      <h1 class="hero-title">Welcome to Bean Boutique</h1>
+      <p class="hero-subtitle">Discover the finest coffee blends & brewing experiences</p>
+      <button id="subscribeBtnTop" class="btn btn-light hero-btn">Get 10% Off Your First Order</button>
+    </div>
+  </header>
+
+<!-- Coffee Selection -->
+<section id="coffee" class="coffee-section">
+  <div class="container">
+    <h2 class="section-title">Our Coffee Blends</h2>
+    <p class="section-subtitle">Discover unique flavors from around the world.</p>
+    <div class="swiper coffee-slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/1.jpg" alt="Ethiopian Yirgacheffe" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Ethiopian Yirgacheffe</h5>
+              <p>Floral notes with a hint of citrus.</p>
+              <button class="btn coffee-btn" data-price="10">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/2.jpg" alt="Colombian Supremo" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Colombian Supremo</h5>
+              <p>Balanced, chocolatey, and smooth.</p>
+              <button class="btn coffee-btn" data-price="12">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/3.jpg" alt="Sumatra Mandheling" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Sumatra Mandheling</h5>
+              <p>Earthy, rich, and full-bodied.</p>
+              <button class="btn coffee-btn" data-price="11">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/4.jpg" alt="Kenyan AA" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Kenyan AA</h5>
+              <p>Bright acidity with fruity undertones.</p>
+              <button class="btn coffee-btn" data-price="13">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/5.jpg" alt="Brazilian Santos" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Brazilian Santos</h5>
+              <p>Nutty and sweet with a mild body.</p>
+              <button class="btn coffee-btn" data-price="9">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/6.jpg" alt="Guatemalan Antigua" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Guatemalan Antigua</h5>
+              <p>Caramel notes with a smoky finish.</p>
+              <button class="btn coffee-btn" data-price="14">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/7.jpg" alt="Costa Rican Tarrazu" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Costa Rican Tarrazu</h5>
+              <p>Crisp and citrusy with a clean finish.</p>
+              <button class="btn coffee-btn" data-price="12">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="coffee-card">
+            <img src="pictures/8.jpg" alt="Hawaiian Kona" class="img-fluid">
+            <div class="coffee-info">
+              <h5>Hawaiian Kona</h5>
+              <p>Silky texture with floral hints.</p>
+              <button class="btn coffee-btn" data-price="15">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Navigation -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+
+  <!-- Events and Workshops Section -->
+
+  <section id="events" class="events-section">
+    <div class="container">
+      <h2 class="section-title">Upcoming Events & Workshops</h2>
+      <p class="section-subtitle">Join us for exclusive coffee experiences.</p>
+      <div class="row">
+        <div class="col-md-4">
+          <div class="event-card">
+            <img src="event1.jpg" alt="Coffee Tasting Session">
+            <div class="event-info">
+              <h5>Coffee Tasting Session</h5>
+              <p>Explore different coffee flavors with our expert baristas.</p>
+              <span class="event-date">📅 July 3, 2025</span>
+              <button class="btn event-btn">Register Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-card">
+            <img src="event2.jpg" alt="Latte Art Workshop">
+            <div class="event-info">
+              <h5>Latte Art Workshop</h5>
+              <p>Learn to create beautiful latte art with our expert trainers.</p>
+              <span class="event-date">📅 April 20, 2025</span>
+              <button class="btn event-btn">Register Now</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="event-card">
+            <img src="event3.jpg" alt="Meet the Roaster">
+            <div class="event-info">
+              <h5>Meet the Roaster</h5>
+              <p>Discover the art of coffee roasting with our head roaster.</p>
+              <span class="event-date">📅 April 28, 2025</span>
+              <button class="btn event-btn">Register Now</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Modal -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h3>Register for Event</h3>
+      <form id="registerForm">
+        <input type="text" placeholder="Your Name" required>
+        <input type="email" placeholder="Your Email" required>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+      <p id="registerSuccess" style="display: none; color: green;">Thank you! You've been registered.</p>
+    </div>
+  </div>
+
+  <!-- Google Map Section -->
+<section id="location" class="map-section">
+  <div class="container">
+    <h2 class="section-title">Visit Us</h2>
+    <p class="section-subtitle">Enjoy freshly brewed coffee at our boutique café.</p>
+
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3977.326123456789!2d35.0077!3d-15.7854!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18e8c9f8f8f8f8f8%3A0x1234567890abcdef!2sBlantyre%2C%20Malawi!5e0!3m2!1sen!2sus!4v1718016000!5m2!1sen!2sus" 
+        width="100%" 
+        height="350" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <p class="map-address">
+      📍 <a href="https://goo.gl/maps/EXAMPLE_LINK" target="_blank">123 Coffee Street, Blantyre, Malawi</a>
+    </p>
+  </div>
+</section>
+  <!-- Social Media Icons Section -->
+  <section id="social-media" class="social-icons-section">
+    <div class="container">
+      <h2 class="section-title">Stay Connected</h2>
+      <p class="section-subtitle">Follow us on your favorite platform</p>
+
+      <div class="social-icons">
+        <a href="https://www.instagram.com/yourhandle" target="_blank" class="social-icon instagram" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://x.com/yourhandle" target="_blank" class="social-icon x" aria-label="X">
+          <i class="fab fa-x-twitter"></i>
+        </a>
+        <a href="https://www.facebook.com/yourpage" target="_blank" class="social-icon facebook" aria-label="Facebook">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://wa.me/1234567890" target="_blank" class="social-icon whatsapp" aria-label="WhatsApp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Font Awesome CDN for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">    
+
+  <!-- Shopping Cart Section -->
+<section id="cart" class="cart-section" style="padding: 60px 0; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); font-family: 'Arial', sans-serif;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <h2 class="section-title" style="font-size: 2.5em; color: #2c3e50; text-align: center; margin-bottom: 10px; animation: fadeIn 1s ease-in;">Your Shopping Cart</h2>
+    <p class="section-subtitle" style="font-size: 1.2em; color: #7f8c8d; text-align: center; margin-bottom: 40px;">Review your selections before checkout.</p>
+
+    <div class="cart-container" style="background: #fff; border-radius: 15px; box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); padding: 30px;">
+      <table class="cart-table" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background: #3498db; color: #fff; text-transform: uppercase; font-size: 1.1em;">
+            <th style="padding: 15px; text-align: left;">Item</th>
+            <th style="padding: 15px; text-align: center;">Price</th>
+            <th style="padding: 15px; text-align: center;">Quantity</th>
+            <th style="padding: 15px; text-align: center;">Total</th>
+            <th style="padding: 15px; text-align: center;">Remove</th>
+          </tr>
+        </thead>
+        <tbody id="cart-items" style="font-size: 1em; color: #34495e;">
+          <!-- Cart items will be added dynamically -->
+          <tr class="cart-item" style="border-bottom: 1px solid #eee; transition: all 0.3s ease;">
+            <td style="padding: 20px; display: flex; align-items: center;">
+              <img src="placeholder.jpg" alt="Product Image" style="width: 80px; height: 80px; object-fit: cover; border-radius: 10px; margin-right: 15px;">
+              <span>Sample Product</span>
+            </td>
+            <td style="padding: 20px; text-align: center;">$29.99</td>
+            <td style="padding: 20px; text-align: center;">
+              <div class="quantity-control" style="display: flex; justify-content: center; align-items: center;">
+                <button class="qty-btn" style="background: #ecf0f1; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px;" onclick="adjustQuantity(this, -1)">-</button>
+                <input type="number" value="1" min="1" style="width: 60px; text-align: center; border: 1px solid #ddd; border-radius: 5px; padding: 5px; margin: 0 10px;">
+                <button class="qty-btn" style="background: #ecf0f1; border: none; padding: 5px 10px; cursor: pointer; border-radius: 5px;" onclick="adjustQuantity(this, 1)">+</button>
+              </div>
+            </td>
+            <td style="padding: 20px; text-align: center;" class="item-total">$29.99</td>
+            <td style="padding: 20px; text-align: center;">
+              <button class="remove-btn" style="background: #e74c3c; color: #fff; border: none; padding: 8px 12px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.background='#c0392b'" onmouseout="this.style.background='#e74c3c'">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <div class="cart-summary" style="margin-top: 30px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 20px;">
+        <div class="promo-code" style="flex: 1; min-width: 250px;">
+          <label for="promo" style="font-size: 1.1em; color: #2c3e50; margin-right: 10px;">Promo Code:</label>
+          <input type="text" id="promo" placeholder="Enter code" style="padding: 10px; border: 1px solid #ddd; border-radius: 5px; width: 60%; max-width: 200px;">
+          <button class="apply-promo" style="background: #2ecc71; color: #fff; border: none; padding: 10px 15px; border-radius: 5px; cursor: pointer; transition: background 0.3s ease;" onmouseover="this.style.background='#27ae60'" onmouseout="this.style.background='#2ecc71'">Apply</button>
+        </div>
+        <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+          <h3 style="font-size: 1.5em; color: #2c3e50; margin: 0;">Total: <span id="cart-total" style="color: #e67e22; font-weight: bold;">$0.00</span></h3>
+          <button class="btn checkout-btn" id="checkoutBtn" style="background: #3498db; color: #fff; border: none; padding: 12px 25px; border-radius: 5px; cursor: pointer; font-size: 1.1em; transition: all 0.3s ease;" onmouseover="this.style.background='#2980b9'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='#3498db'; this.style.transform='scale(1)';">Proceed to Checkout</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Button to open subscription modal -->
+  <button id="subscribeBtnBottom" class="btn btn-primary">Get 10% Off Your Order</button>
+
+  <!-- Subscription Modal Popup -->
+  <div id="subscribeModal" class="modal" style="display:none; position:fixed; left:0; top:0; width:100%; height:100%; background-color: rgba(0,0,0,0.5); justify-content:center; align-items:center;">
+    <div class="modal-content" style="background:white; padding:20px; border-radius:8px; max-width:300px; margin:auto; position:relative;">
+      <span class="close" style="position:absolute; right:10px; top:10px; cursor:pointer; font-size:20px;">&times;</span>
+      <h2>Get 10% Off Your First Order!</h2>
+      <input type="email" id="subscribeEmail" placeholder="Enter your email" required>
+      <button class="btn btn-success" id="submitSubscribe">Subscribe</button>
+      <p id="subscribeSuccess" style="display:none; color:green; margin-top:10px;">You’ve been subscribed! 🎉 Check your inbox for the discount code.</p>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+<footer class="footer-section" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 60px 0; font-family: 'Poppins', sans-serif; position: relative; overflow: hidden;">
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px; position: relative; z-index: 1;">
+    <!-- Background Animation -->
+    <div class="footer-bg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0.1; z-index: -1;">
+      <svg viewBox="0 0 1000 1000" preserveAspectRatio="xMidYMid slice">
+        <path d="M0,0 L1000,0 L1000,1000 L0,1000 Z" fill="url(#grad)" style="animation: wave 20s infinite linear;">
+          <animate attributeName="d" values="M0,0 L1000,0 L1000,1000 L0,1000 Z; M0,200 Q250,100 500,200 T1000,200 L1000,1000 L0,1000 Z; M0,0 L1000,0 L1000,1000 L0,1000 Z" dur="20s" repeatCount="indefinite" />
+        </path>
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#00ddeb;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#ff6f61;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+      </svg>
+    </div>
+
+    <!-- Main Footer Content -->
+    <div class="footer-content" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; margin-bottom: 40px;">
+      <!-- About Section -->
+      <div class="footer-about">
+        <h3 style="font-size: 1.8em; color: #00ddeb; margin-bottom: 15px; animation: fadeIn 1s ease-in;">About Us</h3>
+        <p style="font-size: 1em; line-height: 1.6; color: #e0e0e0;">We’re a cutting-edge team delivering innovative solutions for a modern world. Explore, shop, and connect with us for an unparalleled experience.</p>
+        <div class="social-links" style="display: flex; gap: 15px; margin-top: 20px;">
+          <a href="#" class="social-icon" style="color: #fff; font-size: 1.5em; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">
+            <i class="fab fa-twitter"></i>
+          </a>
+          <a href="#" class="social-icon" style="color: #fff; font-size: 1.5em; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="#" class="social-icon" style="color: #fff; font-size: 1.5em; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">
+            <i class="fab fa-github"></i>
+          </a>
+          <a href="#" class="social-icon" style="color: #fff; font-size: 1.5em; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.transform='scale(1.2)';" onmouseout="this.style.color='#fff'; this.style.transform='scale(1)';">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-links">
+        <h3 style="font-size: 1.8em; color: #00ddeb; margin-bottom: 15px; animation: fadeIn 1s ease-in 0.2s both;">Quick Links</h3>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin: 10px 0;"><a href="#" style="color: #e0e0e0; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.paddingLeft='10px';" onmouseout="this.style.color='#e0e0e0'; this.style.paddingLeft='0';">Home</a></li>
+          <li style="margin: 10px 0;"><a href="#" style="color: #e0e0e0; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.paddingLeft='10px';" onmouseout="this.style.color='#e0e0e0'; this.style.paddingLeft='0';">Shop</a></li>
+          <li style="margin: 10px 0;"><a href="#" style="color: #e0e0e0; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.paddingLeft='10px';" onmouseout="this.style.color='#e0e0e0'; this.style.paddingLeft='0';">About</a></li>
+          <li style="margin: 10px 0;"><a href="#" style="color: #e0e0e0; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#00ddeb'; this.style.paddingLeft='10px';" onmouseout="this.style.color='#e0e0e0'; this.style.paddingLeft='0';">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Newsletter Subscription -->
+      <div class="footer-newsletter">
+        <h3 style="font-size: 1.8em; color: #00ddeb; margin-bottom: 15px; animation: fadeIn 1s ease-in 0.4s both;">Newsletter</h3>
+        <p style="font-size: 1em; color: #e0e0e0; margin-bottom: 20px;">Stay updated with our latest offers and news!</p>
+        <div class="newsletter-form" style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <input type="email" placeholder="Your Email" style="padding: 12px; border: none; border-radius: 25px; width: 70%; font-size: 1em; background: #fff; color: #333; outline: none;">
+          <button class="subscribe-btn" style="padding: 12px 20px; border: none; border-radius: 25px; background: #ff6f61; color: #fff; font-size: 1em; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#e65b50'; this.style.transform='scale(1.05)';" onmouseout="this.style.background='#ff6f61'; this.style.transform='scale(1)';">Subscribe</button>
+        </div>
+        <p id="newsletter-message" style="font-size: 0.9em; color: #00ddeb; margin-top: 10px; display: none;">Thanks for subscribing!</p>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom" style="border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 20px; text-align: center; font-size: 0.9em; color: #e0e0e0;">
+      <p>© 2025 YourBrand. All rights reserved. | <a href="#" style="color: #00ddeb; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6f61';" onmouseout="this.style.color='#00ddeb';">Privacy Policy</a> | <a href="#" style="color: #00ddeb; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.color='#ff6f61';" onmouseout="this.style.color='#00ddeb';">Terms of Service</a> | Developed by Troy</p>
+      <div class="back-to-top" style="margin-top: 15px;">
+        <button id="backToTop" style="background: #00ddeb; color: #fff; border: none; padding: 10px 20px; border-radius: 25px; cursor: pointer; transition: all 0.3s ease;" onmouseover="this.style.background='#ff6f61'; this.style.transform='scale(1.1)';" onmouseout="this.style.background='#00ddeb'; this.style.transform='scale(1)';">Back to Top</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const modal = document.getElementById("subscribeModal");
+      const btns = [document.getElementById("subscribeBtnTop"), document.getElementById("subscribeBtnBottom")];
+      const closeBtn = modal.querySelector(".close");
+      const submitBtn = document.getElementById("submitSubscribe");
+      const emailInput = document.getElementById("subscribeEmail");
+      const successMsg = document.getElementById("subscribeSuccess");
+
+      let lastFocusedBtn = null;
+
+      btns.forEach(btn => {
+        btn.onclick = () => {
+          lastFocusedBtn = btn;
+          modal.style.display = "flex";
+          emailInput.focus();
+        };
+      });
+
+      closeBtn.onclick = function () {
+        modal.style.display = "none";
+        successMsg.style.display = "none";
+        emailInput.value = "";
+        if (lastFocusedBtn) lastFocusedBtn.focus();
+      };
+
+      window.onclick = function (event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+          successMsg.style.display = "none";
+          emailInput.value = "";
+          if (lastFocusedBtn) lastFocusedBtn.focus();
+        }
+      };
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape" && modal.style.display === "flex") {
+          modal.style.display = "none";
+          successMsg.style.display = "none";
+          emailInput.value = "";
+          if (lastFocusedBtn) lastFocusedBtn.focus();
+        }
+      });
+
+      function validateEmail(email) {
+        const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return re.test(email);
+      }
+
+      submitBtn.onclick = function () {
+        const email = emailInput.value.trim();
+        if (!validateEmail(email)) {
+          alert("Please enter a valid email address.");
+          return;
+        }
+        successMsg.style.display = "block";
+        emailInput.value = "";
+        setTimeout(() => {
+          modal.style.display = "none";
+          successMsg.style.display = "none";
+          if (lastFocusedBtn) lastFocusedBtn.focus();
+        }, 3000);
+      };
+    });
+    // Cart functionality
+let cart = [];
+
+function addToCart(itemName, price) {
+    const item = { name: itemName, price: price, quantity: 1 };
+    const existingItem = cart.find(i => i.name === itemName);
+    if (existingItem) {
+        existingItem.quantity += 1;
+    } else {
+        cart.push(item);
+    }
+    updateCart();
+}
+
+function updateCart() {
+    const cartItems = document.getElementById('cart-items');
+    cartItems.innerHTML = '';
+    let total = 0;
+
+    cart.forEach(item => {
+        const itemTotal = item.price * item.quantity;
+        total += itemTotal;
+        const row = document.createElement('tr');
+        row.innerHTML = `
+            <td>${item.name}</td>
+            <td>$${item.price.toFixed(2)}</td>
+            <td>${item.quantity}</td>
+            <td>$${itemTotal.toFixed(2)}</td>
+            <td><button class="btn remove-btn" onclick="removeItem('${item.name}')">Remove</button></td>
+        `;
+        cartItems.appendChild(row);
+    });
+
+    document.getElementById('cart-total').textContent = `$${total.toFixed(2)}`;
+}
+
+function removeItem(itemName) {
+    cart = cart.filter(item => item.name !== itemName);
+    updateCart();
+}
+
+// Event listeners for Add to Cart buttons
+document.querySelectorAll('.coffee-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        const card = button.closest('.coffee-card');
+        const itemName = card.querySelector('h5').textContent;
+        addToCart(itemName, 10); // Placeholder price of $10, adjust as needed
+    });
+});
+
+// Modal and Register Now functionality
+const modal = document.getElementById('registerModal');
+const closeBtn = document.querySelector('.close-btn');
+const registerForm = document.getElementById('registerForm');
+const registerSuccess = document.getElementById('registerSuccess');
+
+// Open modal on Register Now click
+document.querySelectorAll('.event-btn').forEach(button => {
+    button.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+});
+
+// Close modal
+closeBtn.addEventListener('click', () => {
+    modal.style.display = 'none';
+    registerForm.style.display = 'block';
+    registerSuccess.style.display = 'none';
+});
+
+// Handle form submission
+registerForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    registerForm.style.display = 'none';
+    registerSuccess.style.display = 'block';
+});
+
+// Close modal if clicked outside
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.style.display = 'none';
+        registerForm.style.display = 'block';
+        registerSuccess.style.display = 'none';
+    }
+});
+// Initialize Swiper
+const swiper = new Swiper('.coffee-slider', {
+    slidesPerView: 3,
+    spaceBetween: 20,
+    pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+    },
+    navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 1,
+        },
+        768: {
+            slidesPerView: 2,
+        },
+        1024: {
+            slidesPerView: 3,
+        },
+    },
+});
+
+// Immediate execution to hide modal before DOMContentLoaded
+(function() {
+    const modal = document.getElementById('registerModal');
+    if (modal) {
+        modal.style.display = 'none';
+        console.log('Modal hidden immediately, initial state:', window.getComputedStyle(modal).display);
+    }
+})();
+
+// Wait for DOM to fully load before running scripts
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize Swiper Slider
+    try {
+        const swiper = new Swiper('.coffee-slider', {
+            slidesPerView: 3,
+            spaceBetween: 20,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            breakpoints: {
+                640: {
+                    slidesPerView: 1,
+                },
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+            on: {
+                init: function () {
+                    console.log('Swiper initialized successfully');
+                },
+                error: function (e) {
+                    console.error('Swiper initialization error:', e);
+                },
+            },
+        });
+    } catch (e) {
+        console.error('Failed to initialize Swiper:', e);
+    }
+
+    // Cart Functionality
+    let cart = [];
+
+    function addToCart(itemName, price) {
+        if (!itemName || !price) {
+            console.error('Invalid item name or price:', itemName, price);
+            return;
+        }
+        const item = { name: itemName, price: price, quantity: 1 };
+        const existingItem = cart.find(i => i.name === itemName);
+        if (existingItem) {
+            existingItem.quantity += 1;
+        } else {
+            cart.push(item);
+        }
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartItems = document.getElementById('cart-items');
+        if (!cartItems) {
+            console.error('Cart items element not found');
+            return;
+        }
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${item.name}</td>
+                <td>$${item.price.toFixed(2)}</td>
+                <td>${item.quantity}</td>
+                <td>$${itemTotal.toFixed(2)}</td>
+                <td><button class="btn remove-btn" onclick="removeItem('${item.name}')">Remove</button></td>
+            `;
+            cartItems.appendChild(row);
+        });
+
+        const cartTotal = document.getElementById('cart-total');
+        if (cartTotal) {
+            cartTotal.textContent = `$${total.toFixed(2)}`;
+        } else {
+            console.error('Cart total element not found');
+        }
+    }
+
+    function removeItem(itemName) {
+        cart = cart.filter(item => item.name !== itemName);
+        updateCart();
+    }
+
+    // Event listeners for Add to Cart buttons
+    const coffeeButtons = document.querySelectorAll('.coffee-btn');
+    if (coffeeButtons.length > 0) {
+        coffeeButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const card = button.closest('.coffee-card');
+                if (!card) {
+                    console.error('Coffee card not found for button click');
+                    return;
+                }
+                const itemName = card.querySelector('h5')?.textContent || '';
+                const price = parseFloat(button.getAttribute('data-price')) || 0;
+                if (itemName && price) {
+                    addToCart(itemName, price);
+                } else {
+                    console.error('Item name or price not found:', itemName, price);
+                }
+            });
+        });
+    } else {
+        console.warn('No coffee-btn elements found');
+    }
+
+    // Modal and Register Now Functionality
+    const modal = document.getElementById('registerModal');
+    const closeBtn = document.querySelector('.close-btn');
+    const registerForm = document.getElementById('registerForm');
+    const registerSuccess = document.getElementById('registerSuccess');
+    const nameInput = registerForm.querySelector('input[type="text"]');
+    const emailInput = registerForm.querySelector('input[type="email"]');
+
+    // Check for modal elements and initialize hidden
+    if (!modal || !closeBtn || !registerForm || !registerSuccess || !nameInput || !emailInput) {
+        console.error('One or more modal elements not found:', {
+            modal, closeBtn, registerForm, registerSuccess, nameInput, emailInput
+        });
+        return;
+    }
+
+    // Reinforce hiding modal on DOM load
+    modal.style.display = 'none';
+    registerForm.style.display = 'block';
+    registerSuccess.style.display = 'none';
+    console.log('Modal DOM load state:', window.getComputedStyle(modal).display);
+
+    // Open modal only on Register Now click with event details
+    const eventButtons = document.querySelectorAll('.event-btn');
+    if (eventButtons.length > 0) {
+        eventButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const eventCard = button.closest('.event-card');
+                const eventName = eventCard.querySelector('h5').textContent;
+                modal.querySelector('h3').textContent = `Register for ${eventName}`;
+                modal.style.display = 'block';
+                registerForm.style.display = 'block';
+                registerSuccess.style.display = 'none';
+                nameInput.value = '';
+                emailInput.value = '';
+                console.log('Modal opened for:', eventName);
+            });
+        });
+    } else {
+        console.warn('No event-btn elements found');
+    }
+
+    // Close modal on close button click
+    closeBtn.addEventListener('click', () => {
+        modal.style.display = 'none';
+        registerForm.style.display = 'block';
+        registerSuccess.style.display = 'none';
+        console.log('Modal closed by close button');
+    });
+
+    // Handle form submission with validation
+    registerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = nameInput.value.trim();
+        const email = emailInput.value.trim();
+
+        if (!name || !email) {
+            alert('Please enter both your name and email.');
+            return;
+        }
+
+        if (!email.includes('@') || !email.includes('.')) {
+            alert('Please enter a valid email address.');
+            return;
+        }
+
+        registerForm.style.display = 'none';
+        registerSuccess.textContent = `Thank you, ${name}! You are registered for the event.`;
+        registerSuccess.style.display = 'block';
+        console.log('Form submitted for:', name, email);
+
+        // Auto-close after 3 seconds
+        setTimeout(() => {
+            modal.style.display = 'none';
+            registerForm.style.display = 'block';
+            registerSuccess.style.display = 'none';
+            nameInput.value = '';
+            emailInput.value = '';
+        }, 3000);
+    });
+
+    // Close modal if clicked outside
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.style.display = 'none';
+            registerForm.style.display = 'block';
+            registerSuccess.style.display = 'none';
+            nameInput.value = '';
+            emailInput.value = '';
+            console.log('Modal closed by outside click');
+        }
+    });
+
+    // Log initialization success
+    console.log('JavaScript initialized successfully at', new Date().toLocaleString());
+});
+function adjustQuantity(button, change) {
+      const input = button.parentElement.querySelector('input');
+      let quantity = parseInt(input.value) + change;
+      if (quantity < 1) quantity = 1;
+      input.value = quantity;
+      updateItemTotal(button.closest('tr'));
+      updateCartTotal();
+    }
+
+    function updateItemTotal(row) {
+      const price = parseFloat(row.querySelector('td:nth-child(2)').textContent.replace('$', ''));
+      const quantity = parseInt(row.querySelector('input').value);
+      const total = (price * quantity).toFixed(2);
+      row.querySelector('.item-total').textContent = '$' + total;
+    }
+
+    function updateCartTotal() {
+      const items = document.querySelectorAll('.cart-item');
+      let total = 0;
+      items.forEach(item => {
+        total += parseFloat(item.querySelector('.item-total').textContent.replace('$', ''));
+      });
+      document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+    }
+
+    document.querySelectorAll('.remove-btn').forEach(button => {
+      button.addEventListener('click', () => {
+        button.closest('tr').remove();
+        updateCartTotal();
+      });
+    });
+
+    document.querySelector('.apply-promo').addEventListener('click', () => {
+      const promoCode = document.getElementById('promo').value;
+      if (promoCode === 'SAVE10') {
+        let total = parseFloat(document.getElementById('cart-total').textContent.replace('$', ''));
+        total = total * 0.9; // 10% discount
+        document.getElementById('cart-total').textContent = '$' + total.toFixed(2);
+        alert('Promo code applied! 10% discount added.');
+      } else {
+        alert('Invalid promo code.');
+      }
+    });
+
+    // Back to Top Functionality
+    document.getElementById('backToTop').addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // Newsletter Subscription Simulation
+    document.querySelector('.subscribe-btn').addEventListener('click', () => {
+      const email = document.querySelector('.newsletter-form input').value;
+      const message = document.getElementById('newsletter-message');
+      if (email && email.includes('@')) {
+        message.style.display = 'block';
+        message.textContent = 'Thanks for subscribing!';
+        message.style.color = '#00ddeb';
+        document.querySelector('.newsletter-form input').value = '';
+        setTimeout(() => { message.style.display = 'none'; }, 3000);
+      } else {
+        message.style.display = 'block';
+        message.textContent = 'Please enter a valid email!';
+        message.style.color = '#ff6f61';
+      }
+    });
+
+    // Lazy Load Font Awesome for Social Icons
+    const loadIcons = () => {
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css';
+      document.head.appendChild(link);
+    };
+    window.addEventListener('load', loadIcons);
+
+  </script>
+
+</body>
